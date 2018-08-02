@@ -1,0 +1,8 @@
+main: tk.dccraft.UnCraftingTable.Main
+name: UnCrafting-Table
+description: 'The Uncrafting Table Plugin'
+version: 1.2
+author: 'Drew Chase'
+commands:
+     uncft:
+      description: Gets the version and info of Uncrafting Table.
