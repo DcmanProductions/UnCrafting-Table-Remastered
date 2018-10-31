@@ -7,6 +7,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
+@SuppressWarnings("all")
 public class UncraftManager implements Listener {
 	@EventHandler
 	public void onInventoryClick(InventoryClickEvent evt) {

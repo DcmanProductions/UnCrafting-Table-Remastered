@@ -4,6 +4,7 @@ import org.bukkit.Material;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
+@SuppressWarnings("all")
 public class UncraftRecipe {
 	Material slot1;
 	Material slot2;

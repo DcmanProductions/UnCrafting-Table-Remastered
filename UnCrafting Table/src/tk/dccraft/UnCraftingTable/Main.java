@@ -4,16 +4,15 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Random;
 import java.util.logging.Logger;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -25,10 +24,9 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.PluginDescriptionFile;
-import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scheduler.BukkitScheduler;
 
+@SuppressWarnings("all")
 public class Main extends JavaPlugin implements Listener {
 	public static final Logger logger = Logger.getLogger("Minecraft");
 	public static Main plugin;
@@ -112,7 +110,7 @@ public class Main extends JavaPlugin implements Listener {
 	@EventHandler
 	public void onPlayerInteract(PlayerInteractEvent evt) {
 		Player p = evt.getPlayer();
-		if ((evt.getClickedBlock() != null) && (evt.getClickedBlock().getType() == Material.WORKBENCH) && (evt.getAction() == Action.RIGHT_CLICK_BLOCK) && (isUncraftingTable(evt.getClickedBlock()))) {
+		if ((evt.getClickedBlock() != null) && (evt.getClickedBlock().getType() == Material.CRAFTING_TABLE) && (evt.getAction() == Action.RIGHT_CLICK_BLOCK) && (isUncraftingTable(evt.getClickedBlock()))) {
 			evt.setCancelled(true);
 			openUT(p);
 			playersInTable.add(p.getName());
@@ -162,7 +160,7 @@ public class Main extends JavaPlugin implements Listener {
 
 	public static boolean isUncraftingTable(Block b) {
 		boolean isUT = false;
-		if ((b.getType() == Material.WORKBENCH) && (b.getLocation().add(0.0D, -1.0D, 0.0D).getBlock().getType() == Material.DIAMOND_BLOCK)) {
+		if ((b.getType() == Material.CRAFTING_TABLE) && (b.getLocation().add(0.0D, -1.0D, 0.0D).getBlock().getType() == Material.DIAMOND_BLOCK)) {
 			isUT = true;
 		}
 		if (isUT) {
